@@ -555,6 +555,7 @@ public class Init extends javax.swing.JFrame {
     public void setTable() {
         String collection = cbDelta.getSelectedItem().toString().trim() + "_formated_" + cbOL.getSelectedItem().toString().toLowerCase().replace("-", "");
         collection = collection.replace("rollup", "dice_rollup");
+        collection = collection.replace("drilldown", "dice_drilldown");
         DBCollection col = model.getCollection(collection);
         DBCursor cur = col.find();
 

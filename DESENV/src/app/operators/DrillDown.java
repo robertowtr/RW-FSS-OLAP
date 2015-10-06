@@ -169,6 +169,7 @@ public class DrillDown {
         String operator = "";
 
         for (int i = 0; i < filterName.length; i++) {
+            if("".equalsIgnoreCase(filterValue[i].trim())) break;            
             operator = Util.getOperator(filterOperator[i]);
 
             if (operator.equals("==")) {

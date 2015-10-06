@@ -100,9 +100,9 @@ public class Start {
     public void start(String OL, String Delta, String D, String M, String[] Fname, String[] Foperator, String[] Fvalue, String C) {
         MainCube mc = new MainCube();
 
-        if(OL.trim().equalsIgnoreCase("Slice") || OL.trim().equalsIgnoreCase("Dice")){
-            mc.generateCube(Delta, D.split(";"), M);
-        }
+        //if(OL.trim().equalsIgnoreCase("Slice") || OL.trim().equalsIgnoreCase("Dice")){
+        mc.generateCube(Delta, D.split(";"), M);
+        //}
         for(int i = 0; i < Fvalue.length && !"".equalsIgnoreCase(Fvalue[i].trim()); i++){
            Fname[i] = Util.getAttKey(Delta + "_formated", Fname[i]);
         }
