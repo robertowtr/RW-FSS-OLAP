@@ -100,5 +100,6 @@ public class Dice {
 		while(cursor.hasNext()){
 			insertCollection.insert(cursor.next());
 		}
+                collection.drop();
 	}
 }

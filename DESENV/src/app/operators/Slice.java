@@ -45,5 +45,6 @@ public class Slice{
 		while(cursor.hasNext()){
 			insertCollection.insert(cursor.next());
 		}
+                collection.drop();
 	}
 }
