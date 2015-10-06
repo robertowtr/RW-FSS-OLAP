@@ -482,6 +482,7 @@ public class Init extends javax.swing.JFrame {
     }
 
     public void cbCSetItems() {
+        cbC.removeAllItems();
         for (Object chave : lsD.getSelectedValuesList()) {
             cbC.addItem(chave.toString());
         }        
@@ -508,6 +509,9 @@ public class Init extends javax.swing.JFrame {
             txFiltroValor3.setVisible(true);
         }
 
+        cbFiltroChave1.removeAllItems();
+        cbFiltroChave2.removeAllItems();
+        cbFiltroChave3.removeAllItems();
         for (Object chave : lsD.getSelectedValuesList()) {
             cbFiltroChave1.addItem(chave.toString());
             cbFiltroChave2.addItem(chave.toString());
