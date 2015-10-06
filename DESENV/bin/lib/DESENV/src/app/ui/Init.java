@@ -122,7 +122,7 @@ public class Init extends javax.swing.JFrame {
 
         lbOL.setText("Operador OLAP");
 
-        cbOL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--", "Slice", "Dice", "Roll-Up", "Drill-Down" }));
+        cbOL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--", "Slice", "Dice", "Roll-UP", "Drill-Down" }));
         cbOL.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbOLItemStateChanged(evt);
@@ -554,7 +554,6 @@ public class Init extends javax.swing.JFrame {
 
     public void setTable() {
         String collection = cbDelta.getSelectedItem().toString().trim() + "_formated_" + cbOL.getSelectedItem().toString().toLowerCase().replace("-", "");
-        collection = collection.replace("rollup", "dice_rollup");
         DBCollection col = model.getCollection(collection);
         DBCursor cur = col.find();
 

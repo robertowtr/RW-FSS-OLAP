@@ -100,16 +100,13 @@ public class Start {
     public void start(String OL, String Delta, String D, String M, String[] Fname, String[] Foperator, String[] Fvalue, String C) {
         MainCube mc = new MainCube();
 
-        if(OL.trim().equalsIgnoreCase("Slice") || OL.trim().equalsIgnoreCase("Dice")){
-            mc.generateCube(Delta, D.split(";"), M);
-        }
         for(int i = 0; i < Fvalue.length && !"".equalsIgnoreCase(Fvalue[i].trim()); i++){
            Fname[i] = Util.getAttKey(Delta + "_formated", Fname[i]);
         }
         
         switch (OL.trim()) {
             case "Slice":
-                //mc.generateCube(Delta, D.split(";"), M);
+                mc.generateCube(Delta, D.split(";"), M);
                 Slice slice = new Slice();
                 //Fname[0] = Util.getAttKey(Delta + "_formated", Fname[0]);
                 //start(String datasource, String filterName, String filterValue)
@@ -118,7 +115,7 @@ public class Start {
                 break;
 
             case "Dice":
-                //mc.generateCube(Delta, D.split(";"), M);
+                mc.generateCube(Delta, D.split(";"), M);
                 Dice dice = new Dice();
                 //dice.start(Delta + "_formated", D);
                 dice.start(Delta, Fname, Foperator, Fvalue);
@@ -127,15 +124,13 @@ public class Start {
                 RollUp ru = new RollUp();
                 //System.out.println("Selecione a chave a ser sumarizada");
                 //String C_sumario = Util.getAttribute(Delta);
-                //ru.start(Delta, D.split(";"), M, C);
-                ru.start(Delta, D.split(";"), Fname, Foperator, Fvalue, M, C);
+                ru.start(Delta, D.split(";"), M, C);
                 break;
             case "Drill-Down":
                 DrillDown dd = new DrillDown();
-                //System.out.println("Selecione a chave a ser detalhadada");
-                //String C_detalhe = Util.getAttribute(Delta);
-                //dd.start(Delta, D.split(";"), M, C_detalhe);
-                dd.start(Delta, D.split(";"), Fname, Foperator, Fvalue, M, C);
+                System.out.println("Selecione a chave a ser detalhadada");
+                String C_detalhe = Util.getAttribute(Delta);
+                dd.start(Delta, D.split(";"), M, C_detalhe);
                 break;
         }
 
