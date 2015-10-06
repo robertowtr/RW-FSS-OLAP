@@ -169,7 +169,8 @@ public class DrillDown {
         String operator = "";
 
         for (int i = 0; i < filterName.length; i++) {
-            if("".equalsIgnoreCase(filterValue[i].trim())) break;            
+            if("".equalsIgnoreCase(filterValue[i].trim())) break;
+            
             operator = Util.getOperator(filterOperator[i]);
 
             if (operator.equals("==")) {
@@ -188,6 +189,7 @@ public class DrillDown {
         while (cursor.hasNext()) {
             insertCollection.insert(cursor.next());
         }
+        collection.drop();
     }
 
     public void generateCube(String datasource, String key_master, String key_detail, String value) {
@@ -251,7 +253,8 @@ public class DrillDown {
 
         }
         mc.formatOutput(key_detail, datasource + "_temp");
-
+        outputCollection.drop();
+        collection.drop();
     }
 
     private String get_key_detail_value(String key_detail_value) {

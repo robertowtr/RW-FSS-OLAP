@@ -128,21 +128,7 @@ public class RollUp {
             key += dimensions[i] + "#";
         }
         newDimensions[i] = C_sumario;
-        //key += C_sumario + "#";
-
-        //Busca todos os atributos que podem ser sumarizados
-        /*for (int idx = 0; idx < newDimensions.length; idx++) {
-            if (!key.contains(newDimensions[idx])) {
-                key += newDimensions[idx] + "#";
-            }
-            helper = getNextAtt(datasource, newDimensions[idx]);
-            while (!"".equals(helper)) {
-                if (!key.contains(helper)) {
-                    key += helper + "#";
-                }
-                helper = getNextAtt(datasource, helper);
-            }
-        }*/
+        
         key = key.replace(C_sumario.trim(), getNextAtt(datasource, C_sumario));
         key = key.toUpperCase();
         newDimensions = key.split("#");
@@ -153,7 +139,7 @@ public class RollUp {
         dimensions = key.split("#");
 
         this.dice(datasource + "_formated", Fname, Foperator, Fvalue);
-        this.generateCube(datasource + "_formated_dice_rollup", dimensions, "_value", C_sumario);
+        //this.generateCube(datasource + "_formated_dice_rollup", dimensions, "_value", C_sumario);
         return key;
     }
 
@@ -272,5 +258,6 @@ public class RollUp {
         MainCube cc = new MainCube();
         //cc.formatOutput(key, outputCollection.toString());
         cc.formatOutput(format, outputCollection.toString());
+        
     }
 }
